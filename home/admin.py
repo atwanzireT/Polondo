@@ -1,0 +1,14 @@
+from django.contrib import admin
+from .models import *
+
+# Register your models here.
+class SettingAdmin(admin.ModelAdmin):
+    list_display = ['title', 'company', 'status', 'update_at']
+
+class ContactMessageAdmin(admin.ModelAdmin):
+    list_display = ['name','subject', 'update_at','status']
+    readonly_fields =('name','subject','email','message','ip')
+    list_filter = ['status']
+
+admin.site.register(Setting, SettingAdmin)
+admin.site.register(ContactMessage,ContactMessageAdmin)

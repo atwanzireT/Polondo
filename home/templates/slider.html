@@ -1,0 +1,47 @@
+{% load static %}
+<!-- HOME -->
+<div id="home">
+	<!-- container -->
+	<div class="container">
+		<!-- home wrap -->
+		<div class="home-wrap">
+			<!-- home slick -->
+			<div id="home-slick">
+
+				{% for rs in products_slider %}
+				<!-- banner -->
+				<div class="banner banner-1">
+					<img src="{{ rs.image.url }}" alt="" style="object-fit: cover;">
+					<div class="banner-caption text-center">
+					</div>
+				</div>
+				<!-- /banner -->
+				{% endfor %}
+				<!-- /row -->
+			</div>
+			<!-- /home slick -->
+			<!-- row -->
+			<div class="row text-center">
+				<!-- banner -->
+				{% for rs in category_home %}
+				<div class="col-md-2 col-sm-5 col-xs-5">
+					<a href="/category/{{rs.id}}/{{rs.slug}}">
+						<div class="product product-single">
+							<div class="product-thumb">
+								<img src="{{ rs.image.url}}" alt="">
+							</div>
+							<div class="product-body">
+								<h2 class="product-name"><a href="#">{{rs.title}}</a></h2>
+							</div>
+						</div>
+					</a>
+				</div>
+				{% endfor %}
+				<!-- /banner -->
+			</div>
+		</div>
+		<!-- /home wrap -->
+	</div>
+	<!-- /container -->
+</div>
+<!-- /HOME -->
